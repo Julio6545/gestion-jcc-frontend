@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --naranja:        #FF6B00;
+  --naranja-claro:  #FF8C33;
+  --naranja-oscuro: #CC5500;
+  --negro:          #0A0A0A;
+  --negro-suave:    #141414;
+  --negro-card:     #1C1C1C;
+  --gris:           #2A2A2A;
+  --gris-borde:     #333333;
+  --blanco:         #F5F5F5;
+  --muted:          #777777;
+  --font-display:   'Bebas Neue', sans-serif;
+  --font-body:      'Outfit', sans-serif;
+  --radius:         10px;
+  --tr:             0.2s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--negro);
+  color: var(--blanco);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+input, textarea, select { font-family: var(--font-body); outline: none; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--negro); }
+::-webkit-scrollbar-thumb { background: var(--naranja-oscuro); border-radius: 3px; }

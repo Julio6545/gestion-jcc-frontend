@@ -1,0 +1,132 @@
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 16px; height: 62px;
+  background: var(--negro-suave);
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+/* Logo */
+.logo { flex-shrink: 0; }
+.logoImg { height: 38px; width: auto; object-fit: contain; }
+.logoTexto {
+  font-family: var(--font-display);
+  font-size: 1.4rem; letter-spacing: 0.08em; color: var(--naranja);
+}
+
+/* ── Categorías DESKTOP ── */
+.catsDesktop {
+  display: flex; list-style: none; gap: 2px;
+  flex: 1; min-width: 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+.catsDesktop::-webkit-scrollbar { display: none; }
+.catsDesktop li {
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 500; color: var(--muted);
+  cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  transition: color var(--tr), background var(--tr);
+}
+.catsDesktop li:hover { color: var(--blanco); background: var(--gris); }
+.catsDesktop li.activa { color: #000; background: var(--naranja); font-weight: 600; }
+
+/* ── Botón categorías MOBILE ── */
+.btnCatMobile {
+  display: none;
+  flex: 1; min-width: 0;
+  align-items: center; justify-content: space-between;
+  gap: 6px; padding: 6px 12px;
+  background: var(--gris); border: 1px solid var(--gris-borde);
+  border-radius: 20px; color: var(--blanco);
+  font-size: 13px; font-weight: 500;
+  transition: border-color var(--tr);
+  overflow: hidden;
+}
+.btnCatMobile span:first-child {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.btnCatMobile:hover { border-color: var(--naranja); }
+
+.chevronDown, .chevronUp {
+  font-size: 13px; color: var(--naranja);
+  flex-shrink: 0; display: inline-block;
+  transition: transform var(--tr);
+}
+.chevronUp { transform: rotate(180deg); }
+
+/* ── Dropdown mobile ── */
+.dropdown {
+  position: sticky; top: 62px; z-index: 99;
+  background: var(--negro-suave);
+  border-bottom: 1px solid var(--gris-borde);
+  padding: 10px 14px;
+  animation: slideDown 0.15s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dropList {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.dropList li {
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  cursor: pointer; background: var(--gris);
+  border: 1px solid var(--gris-borde);
+  transition: all var(--tr);
+}
+.dropList li:hover { color: var(--blanco); border-color: #555; }
+.dropList li.dropActiva {
+  background: var(--naranja); color: #000;
+  border-color: var(--naranja); font-weight: 600;
+}
+
+/* ── Admin ── */
+.adminZona { flex-shrink: 0; }
+.adminInfo { display: flex; align-items: center; gap: 6px; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--naranja); flex-shrink: 0; }
+.adminNombre {
+  font-size: 12px; color: var(--blanco); font-weight: 500;
+  white-space: nowrap; max-width: 80px;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+.btnLogin {
+  padding: 5px 12px; border-radius: 20px;
+  background: transparent; border: 1px solid var(--gris-borde);
+  color: var(--muted); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.04em; transition: all var(--tr); white-space: nowrap;
+}
+.btnLogin:hover { border-color: var(--naranja); color: var(--naranja); }
+
+.btnLogout {
+  padding: 4px 10px; border-radius: 20px;
+  background: transparent; border: 1px solid var(--gris-borde);
+  color: var(--muted); font-size: 11px;
+  transition: all var(--tr); white-space: nowrap;
+}
+.btnLogout:hover { border-color: #c33; color: #c33; }
+
+/* ── RESPONSIVE ── */
+
+/* Tablet — reducir tamaño de pills */
+@media (max-width: 900px) {
+  .catsDesktop li { font-size: 11px; padding: 4px 10px; }
+  .adminNombre { display: none; }
+}
+
+/* Mobile — cambiar a dropdown */
+@media (max-width: 600px) {
+  .catsDesktop { display: none; }
+  .btnCatMobile { display: flex; }
+  .nav { padding: 0 12px; gap: 8px; height: 56px; }
+  .logoImg { height: 32px; }
+  .dropdown { top: 56px; }
+}
+
+@media (min-width: 601px) {
+  .btnCatMobile { display: none !important; }
+  .dropdown { display: none !important; }
+}

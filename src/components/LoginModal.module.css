@@ -1,0 +1,116 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: var(--negro-card);
+  border: 1px solid var(--gris-borde);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  animation: aparecer 0.2s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  color: var(--texto-muted);
+  font-size: 1rem;
+  transition: color var(--transition);
+}
+
+.cerrar:hover { color: var(--blanco); }
+
+.titulo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  color: var(--naranja);
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo {
+  font-size: 0.85rem;
+  color: var(--texto-muted);
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--texto-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.campo input {
+  background: var(--gris);
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius);
+  padding: 0.7rem 1rem;
+  color: var(--blanco);
+  font-size: 0.95rem;
+  transition: border-color var(--transition);
+}
+
+.campo input:focus {
+  border-color: var(--naranja);
+}
+
+.campo input::placeholder { color: var(--texto-muted); }
+
+.error {
+  font-size: 0.82rem;
+  color: #ff4444;
+  text-align: center;
+}
+
+.btnSubmit {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  background: var(--naranja);
+  color: var(--negro);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  letter-spacing: 0.04em;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btnSubmit:hover:not(:disabled) {
+  background: var(--naranja-claro);
+  transform: translateY(-1px);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
